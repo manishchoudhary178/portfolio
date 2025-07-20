@@ -20,33 +20,31 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
-import postgresql from './tech/elephant.png';
-import postman from './tech/postman.png';
+import postgresql from "./tech/elephant.png";
+import postman from "./tech/postman.png";
 // import next from './tech/next.png';
-import next from './tech/next.jpeg';
-import githubTech from './tech/GitHub.png';
-
+import next from "./tech/next.jpeg";
+import githubTech from "./tech/GitHub.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
-import codeSoft from './company/codeSoft.png';
-import remoteState from './company/remotestate.png';
-
+import codeSoft from "./company/codeSoft.png";
+import remoteState from "./company/remotestate.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
-import nowted from './nowted.png';
-import resumeBuilder from './resumeBuilder.png'
+import nowted from "./nowted.png";
+import resumeBuilder from "./resumeBuilder.png";
 
 export {
   resumeBuilder,
   nowted,
   postgresql,
   postman,
-  githubTech,
+  // githubTech,
   next,
   codeSoft,
   remoteState,
