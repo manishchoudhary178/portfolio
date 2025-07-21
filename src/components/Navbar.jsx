@@ -30,41 +30,43 @@ const Navbar = () => {
       className={`${
         styles.paddingX
       } w-full flex items-center py-5 fixed top-0 z-20 ${
-        scrolled ? "bg-primary" : "bg-transparent"
+        scrolled
+          ? " bg-[#0f0f0f]/70 backdrop-blur-lg shadow-lg"
+          : "bg-transparent "
       }`}
     >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
+      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
-          to='/'
-          className='flex items-center gap-2'
+          to="/"
+          className="flex items-center gap-2"
           onClick={() => {
             setActive("");
             window.scrollTo(0, 0);
           }}
         >
-          {/* <img src={logo} alt='logo' className='w-9 h-9 object-contain' /> */}
-          <div className='w-9 h-9 object-contain text-4xl' ><spam className="text-red-800 ">M</spam>anish</div>
-          {/* <p className='text-white text-[18px] font-bold cursor-pointer flex '>
-            Adrian &nbsp;
-            <span className='sm:block hidden'> | JavaScript Mastery</span>
-          </p> */}
+          <div className="w-9 h-9 object-contain text-4xl">
+            <spam className="text-red-800 ">M</spam>anish
+          </div>
         </Link>
 
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
+        <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((nav) => (
             <li
               key={nav.id}
-              className={`${
-                active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
+              className={`font-poppins font-semibold cursor-pointer text-[18px] ${
+                active === nav.title ? "text-white" : "text-gray-400"
+              } hover:text-white transition-colors duration-200`}
+              onClick={() => {
+                setToggle(false);
+                setActive(nav.title);
+              }}
             >
               <a href={`#${nav.id}`}>{nav.title}</a>
             </li>
           ))}
         </ul>
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        {/* <div className='sm:hidden flex flex-1 justify-end items-center'>
           <img
             src={toggle ? close : menu}
             alt='menu'
@@ -86,6 +88,47 @@ const Navbar = () => {
                   }`}
                   onClick={() => {
                     setToggle(!toggle);
+                    setActive(nav.title);
+                  }}
+                >
+                  <a href={`#${nav.id}`}>{nav.title}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div> */}
+
+        <div className="sm:hidden flex flex-1 justify-end items-center">
+          <img
+            src={toggle ? close : menu}
+            alt="menu"
+            className="w-[28px] h-[28px] object-contain"
+            onClick={() => setToggle(!toggle)}
+          />
+
+          <div
+            className={`fixed top-0 right-0 h-screen w-1/2 bg-[#0f0f0f]/70 backdrop-blur-lg shadow-lg z-30 transform ${
+              toggle ? "translate-x-0" : "translate-x-full"
+            } transition-transform duration-300 ease-in-out rounded-l-2xl`}
+          >
+            <div className="flex justify-end p-5">
+              <img
+                src={close}
+                alt="close"
+                className="w-6 h-6 cursor-pointer"
+                onClick={() => setToggle(false)}
+              />
+            </div>
+
+            <ul className="list-none flex flex-col items-start gap-6 p-6 mt-10">
+              {navLinks.map((nav) => (
+                <li
+                  key={nav.id}
+                  className={`font-poppins font-semibold cursor-pointer text-[18px] ${
+                    active === nav.title ? "text-white" : "text-gray-400"
+                  } hover:text-white transition-colors duration-200`}
+                  onClick={() => {
+                    setToggle(false);
                     setActive(nav.title);
                   }}
                 >
