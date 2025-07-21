@@ -21,8 +21,10 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 import postgresql from "./tech/elephant.png";
-import postman from "./tech/postman.png";
-// import next from './tech/next.png';
+// import postman from "./tech/postman.png";
+import postman from "./tech/p.svg";
+// import postman from "./tech/post.jpeg";
+// import next from './tech/next1.png';
 import next from "./tech/next.jpeg";
 import githubTech from "./tech/GitHub.png";
 

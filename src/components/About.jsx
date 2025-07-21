@@ -16,7 +16,7 @@ const ServiceCard = ({ index, title, icon }) => (
   >
     <motion.div
       variants={fadeIn("right", "spring", index * 0.3, 0.75)}
-      className="w-full bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 p-[2px] rounded-[20px] shadow-lg hover:shadow-[0_0_30px_rgba(255,0,150,0.5)] transition-all duration-500"
+      className="w-full bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 p-[2px] rounded-[20px] shadow-lg  hover:shadow-[0_0_20px_white] transition-all duration-300"
     >
       <div className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
         <img src={icon} alt={title} className="w-16 h-16 object-contain" />
@@ -30,7 +30,7 @@ const ServiceCard = ({ index, title, icon }) => (
 
 const About = () => {
   return (
-    <>
+    <div>
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>Introduction</p>
         <h2 className={styles.sectionHeadText}>Overview</h2>
@@ -51,7 +51,7 @@ const About = () => {
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
