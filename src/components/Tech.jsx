@@ -1,8 +1,8 @@
-import Tilt from "react-parallax-tilt";
-import { motion } from "framer-motion";
+import Tilt from 'react-parallax-tilt';
+import { motion } from 'framer-motion';
 
-import { SectionWrapper } from "../hoc";
-import { technologies } from "../constants";
+import { SectionWrapper } from '../hoc';
+import { technologies } from '../constants';
 
 // Animation variant for the container
 const containerVariants = {
@@ -23,7 +23,7 @@ const itemVariants = {
     y: 0,
     scale: 1,
     transition: {
-      type: "spring",
+      type: 'spring',
       stiffness: 120,
       damping: 10,
     },
@@ -33,10 +33,10 @@ const itemVariants = {
 const Tech = () => {
   return (
     <motion.div
-      className="flex flex-row flex-wrap justify-center gap-10"
+      className='flex flex-row flex-wrap justify-center gap-10'
       variants={containerVariants}
-      initial="hidden"
-      whileInView="show"
+      initial='hidden'
+      whileInView='show'
       viewport={{ once: true, amount: 0.3 }}
     >
       {technologies.map((tech, index) => (
@@ -44,17 +44,13 @@ const Tech = () => {
           <Tilt
             glareEnable={true}
             glareMaxOpacity={0.2}
-            glareColor="#ffffff"
-            glarePosition="all"
+            glareColor='#ffffff'
+            glarePosition='all'
             scale={1.05}
             transitionSpeed={450}
-            className="w-28 h-28 bg-white/5 rounded-xl flex items-center justify-center shadow-md hover:shadow-[0_0_20px_white] transition-all duration-300"
+            className='flex h-28 w-28 items-center justify-center rounded-xl bg-white/5 shadow-md transition-all duration-300 hover:shadow-[0_0_20px_white]'
           >
-            <img
-              src={tech.icon}
-              alt={tech.name}
-              className="w-12 h-12 object-contain"
-            />
+            <img src={tech.icon} alt={tech.name} className='h-12 w-12 object-contain' />
           </Tilt>
         </motion.div>
       ))}
@@ -62,4 +58,4 @@ const Tech = () => {
   );
 };
 
-export default SectionWrapper(Tech, "");
+export default SectionWrapper(Tech, '');
