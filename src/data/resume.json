@@ -1,0 +1,101 @@
+{
+  "name": "Manish Choudhary",
+  "firstName": "Manish",
+  "lastName": "Choudhary",
+  "title": "Frontend Developer",
+  "summary": "Frontend developer with expertise in creating responsive and user-friendly applications, proficient in JavaScript, React.js, and TypeScript. Capable of producing clear, scalable code by working with contemporary UI libraries and frameworks. Presently developing my understanding of databases, Node.js, and Express.js in order to advance into a Full-Stack position. Fast to learn, focused on creating scalable solutions that fulfill project objectives, and team-oriented.",
+  "location": "Greater Noida, UP",
+  "skills": [
+    "C/C++",
+    "JavaScript",
+    "TypeScript",
+    "SQL",
+    "Git",
+    "GitHub",
+    "VS Code",
+    "Postman",
+    "MySQL",
+    "PostgreSQL",
+    "MongoDB",
+    "HTML",
+    "CSS",
+    "React.js",
+    "Next.js",
+    "Tailwind CSS",
+    "MUI",
+    "ShadcnUI",
+    "Node.js",
+    "Express.js",
+    "Zustand",
+    "JWT",
+    "OAuth",
+    "NextAuth.js",
+    "Vercel",
+    "Netlify",
+    "GitHub Actions (CI/CD)",
+    "Responsive Web Design",
+    "Cross-Browser Compatibility",
+    "OOP",
+    "RESTful APIs",
+    "Agile Methodology"
+  ],
+  "projects": [
+    {
+      "name": "Portfolio",
+      "description": "Personal portfolio website",
+      "link": "https://portfolio-manish-178.netlify.app/"
+    },
+    {
+      "name": "Job Portal with Resume Matching",
+      "description": "Created a full-stack job portal with ATS resume matching system.",
+      "technologies": ["React", "Node.js", "MongoDB", "Tailwind CSS", "ShadcnUI", "JWT"],
+      "achievements": [
+        "30% decrease in unauthorized access attempts and enhanced user data protection",
+        "Styled interface with Tailwind CSS and shadcnUI"
+      ],
+      "link": "https://github.com/manishchoudhary178/job-portal"
+    },
+     {
+      "name": "Nowted – Note App",
+      "description": "Note-taking application with offline capabilities and markdown support.",
+      "technologies": ["React", "TypeScript", "PostgreSQL", "Tailwind CSS"],
+      "achievements": [
+        "Implemented offline capabilities with local storage, boosting user retention by 15%",
+        "Added markdown editing and autosave features",
+        "Implemented CRUD operations through RESTful API with secure access"
+      ],
+        "link": "https://github.com/manishchoudhary178/nowted"
+    }
+  ],
+  "experience": [
+    {
+      "company": "RemoteState",
+      "role": "Full Stack Developer Intern",
+      "start": "2025-02",
+      "end": "2025-06",
+      "description": "Developed an internal enterprise dashboard (StoreX) with Next.js and TypeScript to handle employees, physical assets, and out-of-office (OOO) events.",
+      "achievements": [
+        "Used form validation with Zod, reducing form submission errors by 40% through client-side validation and type-safe schemas.",
+        "Created responsive UI with Tailwind CSS and shadcnUI components, adopting modern principles.",
+        "Implemented secure authentication and authorization with NextAuth.js and OAuth providers for role-based access control (RBAC).",
+        "Boosted database query performance by 30% by designing normalized PostgreSQL schema with Drizzle ORM and building optimized indexes."
+      ],
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "PostgreSQL",
+        "Drizzle ORM",
+        "Tailwind CSS",
+        "ShadcnUI",
+        "NextAuth.js",
+        "Zod"
+      ]
+    }
+  ],
+  "contact": {
+    "email": "manishchoudhary799961@gmail.com",
+    "phone": "+91-6263671967",
+    "github": "https://github.com/manishchoudhary178",
+    "website": "https://portfolio-manish-178.netlify.app/"
+  }
+}

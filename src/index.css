@@ -211,3 +211,12 @@
 .animate-borderGradient {
   animation: borderGradient 4s ease-in-out infinite;
 } */
+
+
+/* Add this in a global CSS file */
+::-webkit-scrollbar {
+  width: 0px; /* hides scrollbar */
+}
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
