@@ -34,6 +34,7 @@ import starbucks from './company/starbucks.png';
 import tesla from './company/tesla.png';
 import codeSoft from './company/codeSoft.png';
 import remoteState from './company/remotestate.png';
+import cpc from './company/cpc.png';
 
 import carrent from './carrent.png';
 import jobit from './jobit.png';
@@ -43,6 +44,7 @@ import resumeBuilder from './resumeBuilder.png';
 
 export {
   resumeBuilder,
+  cpc,
   nowted,
   postgresql,
   postman,
