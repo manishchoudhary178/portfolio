@@ -31,6 +31,7 @@ import {
   github,
   nowted,
   resumeBuilder,
+  cpc,
 } from '../assets';
 
 export const navLinks = [
@@ -123,6 +124,18 @@ const technologies = [
 ];
 
 const experiences = [
+  {
+    title: 'Frontend Developer (Trainee - Full Time)',
+    company_name: 'Chaitanya Project Consultancy',
+    icon: cpc,
+    iconBg: '#E6DEDD',
+    date: 'Sep 2025 - Present',
+    points: [
+      'Contributed to the development of an enterprise ERP portal using React.js and Ant Design.',
+      'Built reusable UI components and implemented responsive designs to improve user experience across devices.',
+      'Integrated backend APIs to fetch and display dynamic data in various ERP modules.',
+    ],
+  },
   {
     title: 'Software Developer Intern',
     company_name: 'RemoteState',

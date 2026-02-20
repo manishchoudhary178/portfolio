@@ -42,7 +42,6 @@ export default function Chatbot() {
     'Tell me about your projects',
     "What's your experience?",
     'Show contact info',
-    'Give me a short summary',
   ];
 
   return (
