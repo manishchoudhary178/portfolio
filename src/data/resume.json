@@ -47,39 +47,38 @@
     },
     {
       "name": "Job Portal with Resume Matching",
-      "description": "Created a full-stack job portal with ATS resume matching system.",
+      "description": "A full-stack job portal with resume parsing and keyword matching for recruiters and candidates.",
       "technologies": ["React", "Node.js", "MongoDB", "Tailwind CSS", "ShadcnUI", "JWT"],
-      "achievements": [
-        "30% decrease in unauthorized access attempts and enhanced user data protection",
-        "Styled interface with Tailwind CSS and shadcnUI"
-      ],
       "link": "https://github.com/manishchoudhary178/job-portal"
     },
-     {
+    {
       "name": "Nowted – Note App",
-      "description": "Note-taking application with offline capabilities and markdown support.",
+      "description": "Note-taking application with markdown editing, autosave, and persistent storage.",
       "technologies": ["React", "TypeScript", "PostgreSQL", "Tailwind CSS"],
-      "achievements": [
-        "Implemented offline capabilities with local storage, boosting user retention by 15%",
-        "Added markdown editing and autosave features",
-        "Implemented CRUD operations through RESTful API with secure access"
-      ],
-        "link": "https://github.com/manishchoudhary178/nowted"
+      "link": "https://github.com/manishchoudhary178/nowted"
+    },
+    {
+      "name": "Resume Builder",
+      "description": "Web app to create, preview, download, and share professional resumes.",
+      "technologies": ["React", "Tailwind CSS", "html2pdf", "Strapi"],
+      "link": "https://github.com/manishchoudhary178/Resume-Builder"
     }
   ],
   "experience": [
     {
+      "company": "Chaitanya Project Consultancy",
+      "role": "Frontend Developer (Trainee - Full Time)",
+      "start": "2025-09",
+      "end": "Present",
+      "description": "Contributing to an enterprise ERP portal using React.js and Ant Design, including reusable UI, responsive layouts, and API-driven modules.",
+      "technologies": ["React", "Ant Design", "API Integration"]
+    },
+    {
       "company": "RemoteState",
-      "role": "Full Stack Developer Intern",
+      "role": "Software Developer Intern",
       "start": "2025-02",
       "end": "2025-06",
       "description": "Developed an internal enterprise dashboard (StoreX) with Next.js and TypeScript to handle employees, physical assets, and out-of-office (OOO) events.",
-      "achievements": [
-        "Used form validation with Zod, reducing form submission errors by 40% through client-side validation and type-safe schemas.",
-        "Created responsive UI with Tailwind CSS and shadcnUI components, adopting modern principles.",
-        "Implemented secure authentication and authorization with NextAuth.js and OAuth providers for role-based access control (RBAC).",
-        "Boosted database query performance by 30% by designing normalized PostgreSQL schema with Drizzle ORM and building optimized indexes."
-      ],
       "technologies": [
         "Next.js",
         "TypeScript",
@@ -90,6 +89,14 @@
         "NextAuth.js",
         "Zod"
       ]
+    },
+    {
+      "company": "CodeSoft",
+      "role": "Front-End Developer Intern",
+      "start": "2024-12",
+      "end": "2024-12",
+      "description": "Developed interactive UI from Figma designs using HTML, CSS, and JavaScript, with a mobile-first and cross-browser approach.",
+      "technologies": ["HTML", "CSS", "JavaScript", "Figma", "Git"]
     }
   ],
   "contact": {
