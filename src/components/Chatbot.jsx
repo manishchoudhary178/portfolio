@@ -1,138 +1,147 @@
-// src/components/Chatbot.jsx
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { FiMessageSquare, FiSend, FiX } from 'react-icons/fi';
 import resume from '../data/resume.json';
 import { createResumeSearcher } from '../utils/resumeSearch';
-import { FiMessageSquare, FiSend, FiX } from 'react-icons/fi';
 
 const searcher = createResumeSearcher(resume);
+
+const quickQuestions = [
+  'What are your skills?',
+  'Tell me about your projects',
+  "What's your experience?",
+  'Show contact info',
+];
 
 export default function Chatbot() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([
-    { id: 0, sender: 'bot', text: `Hi — I'm a resume helper. Ask about skills, projects, experience or contact info.` },
+    {
+      id: 0,
+      sender: 'bot',
+      text: "Hi — I'm a resume helper. Ask about skills, projects, experience or contact info.",
+    },
   ]);
   const containerRef = useRef(null);
 
   useEffect(() => {
-    // auto scroll to bottom
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current.scrollHeight;
     }
   }, [messages, open]);
 
-  function pushMessage(sender, text, meta = {}) {
+  const pushMessage = (sender, text, meta = {}) => {
     setMessages((prev) => [...prev, { id: prev.length + 1, sender, text, ...meta }]);
-  }
+  };
 
-  function handleSend(q) {
-    const query = q?.trim();
-    if (!query) return;
-    pushMessage('user', query);
+  const handleSend = (query) => {
+    const next = query?.trim();
+    if (!next) return;
+    pushMessage('user', next);
     setInput('');
-
-    // Synchronously search & produce an answer
-    // const { answer, sources } = searcher.ask(query);
-    const { answer, sources } = searcher(query);
+    const { answer, sources } = searcher(next);
     pushMessage('bot', answer, { sources });
-  }
-
-  const quickQuestions = [
-    'What are your skills?',
-    'Tell me about your projects',
-    "What's your experience?",
-    'Show contact info',
-  ];
+  };
 
   return (
     <>
-      {/* Floating button */}
       <button
-        aria-label='Open chat'
+        type='button'
+        aria-label='Open resume chat'
         onClick={() => setOpen(true)}
-        className='fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg'
+        data-cursor='button'
+        className='fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-line bg-surface text-ink shadow-lg transition-colors hover:bg-accent hover:text-accent-ink'
       >
-        <FiMessageSquare size={20} />
+        <FiMessageSquare size={18} />
       </button>
 
-      {/* Modal */}
-      {open && (
-        <div className='fixed inset-0 z-50 flex justify-end'>
-          {/* backdrop */}
-          <div className='absolute inset-0 bg-black/40' onClick={() => setOpen(false)} />
-
-          <div className='relative flex h-full w-[35%] flex-col overflow-hidden bg-gray-900 text-white shadow-2xl'>
-            <div className='flex items-center justify-between border-b border-gray-700 px-4 py-2'>
-              <div className='flex items-center gap-3'>
-                <div className='flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white'>M</div>
+      <AnimatePresence>
+        {open ? (
+          <div className='fixed inset-0 z-50 flex justify-end'>
+            <button
+              type='button'
+              aria-label='Close chat overlay'
+              className='absolute inset-0 bg-black/50'
+              onClick={() => setOpen(false)}
+            />
+            <motion.div
+              initial={{ x: 32, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: 32, opacity: 0 }}
+              transition={{ duration: 0.28, ease: 'easeOut' }}
+              className='relative flex h-full w-full flex-col border-l border-line bg-bg text-ink sm:w-[420px]'
+              role='dialog'
+              aria-label='Resume chatbot'
+            >
+              <div className='flex items-center justify-between border-b border-line px-4 py-3'>
                 <div>
-                  <div className='font-medium'>Manish — Resume Chatbot</div>
-                  <div className='text-xs text-gray-400'>Ask me about skills, projects or experience</div>
+                  <p className='text-sm font-medium'>Manish — Resume chatbot</p>
+                  <p className='text-xs text-mute'>Ask about skills, projects, or experience</p>
                 </div>
+                <button type='button' onClick={() => setOpen(false)} className='p-2 text-mute hover:text-ink' aria-label='Close chat'>
+                  <FiX />
+                </button>
               </div>
-              <button onClick={() => setOpen(false)} className='p-2 text-gray-400 hover:text-white'>
-                <FiX />
-              </button>
-            </div>
 
-            {/* messages */}
-            <div ref={containerRef} className='flex-1 space-y-3 overflow-auto px-4 py-3'>
-              {messages.map((msg) => (
-                <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div
-                    className={`max-w-[80%] rounded-lg p-3 shadow-sm ${
-                      msg.sender === 'user' ? 'bg-blue-600 text-white' : 'border border-gray-700 bg-gray-800 text-white'
-                    }`}
-                  >
-                    <div className='whitespace-pre-wrap'>{msg.text}</div>
-                    {msg.sources && msg.sources.length > 0 && (
-                      <div className='mt-2 text-xs text-gray-300'>
-                        Sources: {msg.sources.map((s) => s.title || s.type).join(' • ')}
-                      </div>
-                    )}
+              <div ref={containerRef} className='flex-1 space-y-3 overflow-auto px-4 py-4'>
+                {messages.map((msg) => (
+                  <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+                    <div
+                      className={`max-w-[82%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${
+                        msg.sender === 'user' ? 'bg-accent text-accent-ink' : 'border border-line bg-surface'
+                      }`}
+                    >
+                      <p className='whitespace-pre-wrap'>{msg.text}</p>
+                      {msg.sources?.length ? (
+                        <p className='mt-2 text-[11px] opacity-70'>
+                          Sources: {msg.sources.map((source) => source.title || source.type).join(' • ')}
+                        </p>
+                      ) : null}
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-
-            {/* quick chips & input - UPDATED SECTION */}
-            <div className='border-t border-gray-700 bg-gray-900 px-3 py-2'>
-              <div className='flex gap-2 overflow-x-auto pb-2'>
-                {quickQuestions.map((q) => (
-                  <button
-                    key={q}
-                    onClick={() => handleSend(q)}
-                    className='whitespace-nowrap rounded-full border border-gray-600 bg-gray-800 px-4 py-2 text-sm text-gray-300 transition-colors duration-200 hover:bg-gray-700'
-                  >
-                    {q}
-                  </button>
                 ))}
               </div>
 
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  handleSend(input);
-                }}
-                className='mt-2 flex gap-2'
-              >
-                <input
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  placeholder='Ask about skills, projects, experience...'
-                  className='flex-1 rounded-lg border border-gray-600 bg-gray-800 px-3 py-2 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500'
-                />
-                <button
-                  type='submit'
-                  className='flex items-center justify-center rounded-lg bg-blue-600 px-3 py-2 text-white hover:bg-blue-700'
+              <div className='border-t border-line px-3 py-3'>
+                <div className='mb-2 flex gap-2 overflow-x-auto pb-1'>
+                  {quickQuestions.map((question) => (
+                    <button
+                      key={question}
+                      type='button'
+                      onClick={() => handleSend(question)}
+                      className='whitespace-nowrap rounded-full border border-line px-3 py-1.5 text-xs text-mute hover:text-ink'
+                    >
+                      {question}
+                    </button>
+                  ))}
+                </div>
+                <form
+                  onSubmit={(event) => {
+                    event.preventDefault();
+                    handleSend(input);
+                  }}
+                  className='flex gap-2'
                 >
-                  <FiSend />
-                </button>
-              </form>
-            </div>
+                  <input
+                    value={input}
+                    onChange={(event) => setInput(event.target.value)}
+                    placeholder='Ask about skills, projects, experience...'
+                    className='flex-1 rounded-full border border-line bg-surface px-4 py-2 text-sm text-ink outline-none placeholder:text-faint focus:border-accent'
+                  />
+                  <button
+                    type='submit'
+                    aria-label='Send message'
+                    className='flex h-10 w-10 items-center justify-center rounded-full bg-ink text-bg'
+                  >
+                    <FiSend size={14} />
+                  </button>
+                </form>
+              </div>
+            </motion.div>
           </div>
-        </div>
-      )}
+        ) : null}
+      </AnimatePresence>
     </>
   );
 }
