@@ -49,7 +49,7 @@ export default function Craft() {
     <section ref={rootRef} data-theme='light' className='relative bg-bg text-ink'>
       <div className='container-site py-24 lg:flex lg:h-screen lg:flex-col lg:justify-center lg:py-0'>
         <p className='meta mb-8'>
-          <span className='text-accent'>04</span> — I care about
+          <span className='text-accent'>04</span> | I care about
         </p>
 
         <div className='lg:hidden space-y-12'>

@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
+import { appFlow } from '../../data';
 import { gsap } from '../../lib/gsap';
 import { useIsDesktop, usePrefersReducedMotion } from '../../hooks/useMedia';
 
@@ -47,18 +48,26 @@ export default function CodeToUi() {
     <section ref={rootRef} data-theme='dark' className='relative overflow-hidden bg-bg'>
       <div className='container-site flex min-h-[100svh] flex-col justify-center py-24'>
         <p className='meta mb-8'>
-          <span className='text-accent'>05</span> — Code becomes experience
+          <span className='text-accent'>05</span> | Application flow
         </p>
         <div className='grid items-center gap-10 lg:grid-cols-2'>
           <pre className='code-panel overflow-x-auto rounded-2xl border border-line bg-black/50 p-6 font-mono text-[13px] leading-7 text-mute md:text-sm'>
             <code>
-              <span className='text-accent'>const</span> experience = {'{'}
-              {'\n'}
-              {'  '}design: <span className='text-ink'>true</span>,{'\n'}
-              {'  '}performance: <span className='text-ink'>true</span>,{'\n'}
-              {'  '}usability: <span className='text-ink'>true</span>
-              {'\n'}
-              {'}'}
+              {appFlow.map((step, index) => (
+                <span key={step}>
+                  <span className={index === 1 || index === appFlow.length - 1 ? 'text-accent' : 'text-ink'}>
+                    {step}
+                  </span>
+                  {index < appFlow.length - 1 ? (
+                    <>
+                      {'\n'}
+                      {'      '}
+                      <span className='text-accent'>↓</span>
+                      {'\n'}
+                    </>
+                  ) : null}
+                </span>
+              ))}
             </code>
           </pre>
 
@@ -70,7 +79,7 @@ export default function CodeToUi() {
               </span>
             </div>
             <h3 className='font-display text-3xl font-bold'>Invoice register</h3>
-            <p className='mt-2 text-sm text-mute'>Finance workflow — clear states, typed data, API-backed rows.</p>
+            <p className='mt-2 text-sm text-mute'>Finance workflow with clear states, typed data, and API backed rows.</p>
             <div className='mt-6 space-y-2'>
               <div className='flex items-center justify-between rounded-xl bg-white/5 px-4 py-3 text-sm'>
                 <span>Draft</span>

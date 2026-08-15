@@ -9,7 +9,7 @@ export const processSteps = [
     id: 'design',
     number: '02',
     title: 'Design',
-    text: 'Structure the interface: hierarchy, states, and the empty/error paths that usually get skipped.',
+    text: 'Structure the interface: hierarchy, states, and the empty and error paths that usually get skipped.',
   },
   {
     id: 'build',
@@ -21,7 +21,7 @@ export const processSteps = [
     id: 'integrate',
     number: '04',
     title: 'Integrate',
-    text: 'Connect APIs, auth, and forms. Loading, validation, and failure should feel intentional — not bolted on.',
+    text: 'Connect APIs, auth, and forms. Loading, validation, and failure should feel intentional, not bolted on.',
   },
   {
     id: 'refine',

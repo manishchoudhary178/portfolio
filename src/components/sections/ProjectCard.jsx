@@ -33,7 +33,7 @@ export default function ProjectCard({ project, compact = false }) {
       >
         <div className={`project-copy flex flex-col justify-center ${compact ? '' : 'px-[5vw] py-24'}`}>
           <p className='meta text-accent'>
-            {project.number} — {project.kicker}
+            {project.number} | {project.kicker}
           </p>
           <h3 className='project-title font-display mt-4 text-[clamp(1.6rem,3vw,2.8rem)] font-extrabold leading-[1.05] tracking-[-0.035em]'>
             {project.name}

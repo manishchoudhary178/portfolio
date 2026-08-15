@@ -20,7 +20,7 @@ export default function Chatbot() {
     {
       id: 0,
       sender: 'bot',
-      text: "Hi — I'm a resume helper. Ask about skills, projects, experience or contact info.",
+      text: "Hi. I'm a resume helper. Ask about skills, projects, experience or contact info.",
     },
   ]);
   const containerRef = useRef(null);
@@ -76,7 +76,7 @@ export default function Chatbot() {
             >
               <div className='flex items-center justify-between border-b border-line px-4 py-3'>
                 <div>
-                  <p className='text-sm font-medium'>Manish — Resume chatbot</p>
+                  <p className='text-sm font-medium'>Manish | Resume chatbot</p>
                   <p className='text-xs text-mute'>Ask about skills, projects, or experience</p>
                 </div>
                 <button type='button' onClick={() => setOpen(false)} className='p-2 text-mute hover:text-ink' aria-label='Close chat'>

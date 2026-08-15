@@ -3,41 +3,50 @@
   "firstName": "Manish",
   "lastName": "Choudhary",
   "title": "Frontend Developer",
-  "summary": "Frontend developer with expertise in creating responsive and user-friendly applications, proficient in JavaScript, React.js, and TypeScript. Capable of producing clear, scalable code by working with contemporary UI libraries and frameworks. Presently developing my understanding of databases, Node.js, and Express.js in order to advance into a Full-Stack position. Fast to learn, focused on creating scalable solutions that fulfill project objectives, and team-oriented.",
+  "summary": "Frontend developer with practical experience across the MERN stack. I build responsive React and Next.js interfaces, and I also work with Node.js, Express.js, MongoDB, REST APIs, authentication, and database driven workflows. Currently handling a full MERN enterprise application for finance and ERP work.",
   "location": "Greater Noida, UP",
   "skills": [
-    "C/C++",
     "JavaScript",
     "TypeScript",
-    "SQL",
-    "Git",
-    "GitHub",
-    "VS Code",
-    "Postman",
-    "MySQL",
-    "PostgreSQL",
-    "MongoDB",
     "HTML",
     "CSS",
     "React.js",
     "Next.js",
     "Tailwind CSS",
-    "MUI",
+    "Ant Design",
+    "Material UI",
     "ShadcnUI",
+    "Responsive Design",
+    "Reusable UI Components",
     "Node.js",
     "Express.js",
-    "Zustand",
+    "REST APIs",
+    "API Development",
+    "Authentication",
+    "Authorization",
     "JWT",
     "OAuth",
     "NextAuth.js",
+    "Middleware",
+    "Server Side Validation",
+    "Error Handling",
+    "Business Logic",
+    "MongoDB",
+    "Mongoose",
+    "PostgreSQL",
+    "MySQL",
+    "Database Design",
+    "CRUD Operations",
+    "MERN Stack",
+    "API Integration",
+    "Git",
+    "GitHub",
+    "VS Code",
+    "Postman",
+    "NPM",
+    "Figma",
     "Vercel",
-    "Netlify",
-    "GitHub Actions (CI/CD)",
-    "Responsive Web Design",
-    "Cross-Browser Compatibility",
-    "OOP",
-    "RESTful APIs",
-    "Agile Methodology"
+    "Netlify"
   ],
   "projects": [
     {
@@ -47,19 +56,19 @@
     },
     {
       "name": "Job Portal with Resume Matching",
-      "description": "A full-stack job portal with resume parsing and keyword matching for recruiters and candidates.",
+      "description": "A MERN job portal with React, Node.js APIs, JWT authentication, MongoDB, and keyword based resume matching for recruiters and candidates.",
       "technologies": ["React", "Node.js", "MongoDB", "Tailwind CSS", "ShadcnUI", "JWT"],
       "link": "https://github.com/manishchoudhary178/job-portal"
     },
     {
-      "name": "Nowted – Note App",
-      "description": "Note-taking application with markdown editing, autosave, and persistent storage.",
+      "name": "Nowted Note App",
+      "description": "Note taking application with a React editor, REST APIs, PostgreSQL, autosave, and persistent storage.",
       "technologies": ["React", "TypeScript", "PostgreSQL", "Tailwind CSS"],
       "link": "https://github.com/manishchoudhary178/nowted"
     },
     {
       "name": "Resume Builder",
-      "description": "Web app to create, preview, download, and share professional resumes.",
+      "description": "Web app to create, preview, download, and share professional resumes, with a React frontend connected to Strapi.",
       "technologies": ["React", "Tailwind CSS", "html2pdf", "Strapi"],
       "link": "https://github.com/manishchoudhary178/Resume-Builder"
     }
@@ -67,18 +76,18 @@
   "experience": [
     {
       "company": "Chaitanya Project Consultancy",
-      "role": "Frontend Developer (Trainee - Full Time)",
-      "start": "2025-09",
+      "role": "Frontend Developer | Trainee | Full Time",
+      "start": "Sep 2025",
       "end": "Present",
-      "description": "Contributing to an enterprise ERP portal using React.js and Ant Design, including reusable UI, responsive layouts, and API-driven modules.",
-      "technologies": ["React", "Ant Design", "API Integration"]
+      "description": "Working on a full MERN stack enterprise application, developing React interfaces while also handling Node.js and Express APIs, MongoDB operations, authentication, business logic, and frontend backend integration across finance workflows.",
+      "technologies": ["React", "JavaScript", "Node.js", "Express.js", "MongoDB", "Mongoose", "REST APIs", "Ant Design", "Authentication", "API Integration"]
     },
     {
       "company": "RemoteState",
       "role": "Software Developer Intern",
-      "start": "2025-02",
-      "end": "2025-06",
-      "description": "Developed an internal enterprise dashboard (StoreX) with Next.js and TypeScript to handle employees, physical assets, and out-of-office (OOO) events.",
+      "start": "Feb 2025",
+      "end": "Jun 2025",
+      "description": "Developed an internal enterprise dashboard (StoreX) with Next.js and TypeScript to handle employees, physical assets, and out of office events, including REST API integration, authentication, and PostgreSQL.",
       "technologies": [
         "Next.js",
         "TypeScript",
@@ -92,16 +101,16 @@
     },
     {
       "company": "CodeSoft",
-      "role": "Front-End Developer Intern",
-      "start": "2024-12",
-      "end": "2024-12",
-      "description": "Developed interactive UI from Figma designs using HTML, CSS, and JavaScript, with a mobile-first and cross-browser approach.",
+      "role": "Frontend Developer Intern",
+      "start": "Dec 2024",
+      "end": "Dec 2024",
+      "description": "Developed interactive UI from Figma designs using HTML, CSS, and JavaScript, with a mobile first and cross browser approach.",
       "technologies": ["HTML", "CSS", "JavaScript", "Figma", "Git"]
     }
   ],
   "contact": {
     "email": "manishchoudhary799961@gmail.com",
-    "phone": "+91-6263671967",
+    "phone": "+91 6263671967",
     "github": "https://github.com/manishchoudhary178",
     "website": "https://portfolio-manish-178.netlify.app/"
   }

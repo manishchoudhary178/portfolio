@@ -91,10 +91,10 @@ export default function InterfaceStack() {
         React
       </span>
       <span className='iface-layer-b iface-chip absolute right-[6%] top-[46%] rounded-full border border-line bg-black/60 px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-ink backdrop-blur-md'>
-        API
+        Express
       </span>
       <span className='iface-layer-b iface-chip absolute bottom-[22%] right-[-4%] rounded-full border border-accent/40 bg-accent px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-accent-ink'>
-        Interface
+        MongoDB
       </span>
     </div>
   );

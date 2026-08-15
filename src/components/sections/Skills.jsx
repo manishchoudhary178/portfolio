@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from 'react';
 import { useGSAP } from '@gsap/react';
-import { skillGroups, skillInsights, skillLinks, skillNetwork } from '../../data';
+import { mernFlow, skillGroups, skillInsights, skillLinks, skillNetwork } from '../../data';
 import { gsap } from '../../lib/gsap';
 import { usePrefersReducedMotion } from '../../hooks/useMedia';
 import SplitWords from '../ui/SplitWords';
@@ -14,6 +14,7 @@ export default function Skills() {
     [active]
   );
   const insights = active ? skillInsights[active] || [] : [];
+  const highlightSpine = active === 'MERN Stack' || activeGroup === 'fullstack';
 
   useGSAP(
     () => {
@@ -56,7 +57,7 @@ export default function Skills() {
     <section id='skills' ref={rootRef} data-theme='dark' className='relative bg-[#0c0c0c] py-24 md:py-32'>
       <div className='container-site'>
         <p className='meta mb-10'>
-          <span className='text-accent'>03</span> — Technical constellation
+          <span className='text-accent'>03</span> | Technical constellation
         </p>
         <div className='grid items-start gap-16 lg:grid-cols-[0.85fr_1.15fr]'>
           <div>
@@ -64,8 +65,25 @@ export default function Skills() {
               <SplitWords text='A system, not a list.' />
             </h2>
             <p className='mt-5 max-w-md text-mute'>
-              Frontend first, then APIs, then data. Hover a technology to see how it sits in the work.
+              Frontend first, then APIs, auth, and data. I currently work across the full MERN stack.
             </p>
+
+            <div className='mt-8 rounded-2xl border border-line bg-white/[0.03] p-5'>
+              <p className='meta text-accent'>MERN STACK</p>
+              <ol className='mt-4 font-display text-lg font-semibold tracking-tight'>
+                {mernFlow.map((step, index) => (
+                  <li key={step} className='flex flex-col items-start'>
+                    <span>{step}</span>
+                    {index < mernFlow.length - 1 ? (
+                      <span className='my-1 ml-1 text-sm font-normal text-accent' aria-hidden='true'>
+                        ↓
+                      </span>
+                    ) : null}
+                  </li>
+                ))}
+              </ol>
+            </div>
+
             <div className='mt-8 min-h-[3.5rem]'>
               {active ? (
                 <div>
@@ -109,12 +127,14 @@ export default function Skills() {
             </div>
           </div>
 
-          <div className='relative hidden aspect-square max-h-[580px] w-full lg:block'>
-            <svg viewBox='0 0 100 100' className='h-full w-full overflow-visible' role='img' aria-label='Technology relationship map'>
+          <div className='relative hidden aspect-square max-h-[580px] w-full lg:sticky lg:top-[calc(var(--nav-h)+1.5rem)] lg:block'>
+            <svg viewBox='0 0 100 100' className='h-full w-full overflow-visible' role='img' aria-label='MERN stack flow from React to MongoDB'>
               {skillLinks.map(([from, to]) => {
                 const a = nodeById[from];
                 const b = nodeById[to];
-                const related = !activeGroup || a.group === activeGroup || b.group === activeGroup;
+                const related = highlightSpine
+                  ? a.spine && b.spine
+                  : !activeGroup || a.group === activeGroup || b.group === activeGroup;
                 return (
                   <line
                     key={`${from}-${to}`}
@@ -133,7 +153,9 @@ export default function Skills() {
                 );
               })}
               {skillNetwork.map((node) => {
-                const on = !activeGroup || node.group === activeGroup;
+                const on = highlightSpine
+                  ? node.spine
+                  : !activeGroup || node.group === activeGroup;
                 return (
                   <g key={node.id} className='skill-dot' style={{ opacity: on ? 1 : 0.22 }}>
                     <circle cx={node.x} cy={node.y} r={on ? 1.35 : 1} fill={on ? '#c8f54a' : '#8b8a85'} />
