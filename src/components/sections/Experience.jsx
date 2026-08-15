@@ -34,6 +34,16 @@ function ExperienceCard({ item, index, sticky }) {
           <p className='mt-3 font-serif text-2xl italic text-mute'>{item.company}</p>
           <p className='mt-1 text-sm text-faint'>{item.focus}</p>
           <p className='mt-6 max-w-xl text-[0.98rem] leading-relaxed text-ink/85'>{item.summary}</p>
+          {item.points?.length ? (
+            <ul className='mt-6 max-w-xl space-y-2 text-sm leading-relaxed text-mute'>
+              {item.points.map((point) => (
+                <li key={point} className='flex gap-3'>
+                  <span className='mt-2 h-1 w-1 shrink-0 rounded-full bg-accent' aria-hidden='true' />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
           <ul className='mt-6 flex flex-wrap gap-2'>
             {item.technologies.map((tech) => (
               <li
@@ -134,7 +144,7 @@ export default function Experience() {
       <div className='container-site py-24 md:py-32'>
         <div className='mb-12 flex items-end justify-between gap-6'>
           <p className='meta'>
-            <span className='text-accent'>02</span> — Experience
+            <span className='text-accent'>02</span> | Experience
           </p>
           <p className='exp-count hidden font-mono text-xs tracking-[0.18em] text-faint lg:block'>01 / 03</p>
         </div>

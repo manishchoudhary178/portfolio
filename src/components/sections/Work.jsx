@@ -83,7 +83,7 @@ export default function Work() {
         <div className='h-screen overflow-hidden'>
           <div className='pointer-events-none absolute left-[5vw] top-8 z-10'>
             <p className='meta'>
-              <span className='text-accent'>01</span> — Selected work
+              <span className='text-accent'>01</span> | Selected work
             </p>
           </div>
           <div ref={trackRef} className='flex h-full will-change-transform'>
@@ -95,7 +95,7 @@ export default function Work() {
       ) : (
         <div className='container-site py-20'>
           <p className='meta mb-10'>
-            <span className='text-accent'>01</span> — Selected work
+            <span className='text-accent'>01</span> | Selected work
           </p>
           {projects.map((project) => (
             <div key={project.id} className='border-t border-line'>

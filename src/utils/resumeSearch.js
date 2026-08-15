@@ -53,7 +53,7 @@ function buildDocuments(resume = {}) {
 
   // education
   (resume.education || []).forEach((ed, i) => {
-    const title = `${ed.degree || ''} ${ed.institution ? `— ${ed.institution}` : ''}`.trim() || `Education ${i + 1}`;
+    const title = `${ed.degree || ''} ${ed.institution ? `| ${ed.institution}` : ''}`.trim() || `Education ${i + 1}`;
     docs.push({ id: `edu-${i}`, type: 'education', title, content: ed.year || '' });
   });
 
@@ -111,7 +111,7 @@ export function createResumeSearcher(resume = {}) {
         return { answer: `His surname is ${s}.`, sources: [{ id: 'name.last', type: 'name', title: 'Last name' }] };
       if (resume.name)
         return {
-          answer: `No separate surname field — full name is: ${resume.name}. I assume the surname is the last token, which would be "${resume.name.trim().split(/\s+/).slice(-1)[0]}".`,
+          answer: `No separate surname field. Full name is: ${resume.name}. I assume the surname is the last token, which would be "${resume.name.trim().split(/\s+/).slice(-1)[0]}".`,
           sources: [{ id: 'name.full', type: 'name', title: 'Full name' }],
         };
       return null;
@@ -127,7 +127,7 @@ export function createResumeSearcher(resume = {}) {
         };
       if (resume.name)
         return {
-          answer: `I couldn't find a separate first-name field — full name is: ${resume.name}. The likely first name is "${resume.name.trim().split(/\s+/)[0]}".`,
+          answer: `I couldn't find a separate first name field. Full name is: ${resume.name}. The likely first name is "${resume.name.trim().split(/\s+/)[0]}".`,
           sources: [{ id: 'name.full', type: 'name', title: 'Full name' }],
         };
       return null;
@@ -169,7 +169,7 @@ export function createResumeSearcher(resume = {}) {
     if (/\b(project|projects|portfolio|work)\b/.test(q) && /\b(show|list|tell|what|which)\b/.test(q)) {
       if (resume.projects && resume.projects.length) {
         const parts = resume.projects.map(
-          (p) => `${p.name}${p.description ? ` — ${shorten(p.description, 160)}` : ''}`
+          (p) => `${p.name}${p.description ? ` | ${shorten(p.description, 160)}` : ''}`
         );
         return {
           answer: `Projects:\n${parts.join('\n• ')}`,
@@ -179,12 +179,12 @@ export function createResumeSearcher(resume = {}) {
       return { answer: 'No projects listed yet.', sources: [] };
     }
 
-    // work experience — companies or roles
+    // work experience: companies or roles
     if (/\b(experience|worked|company|role|job|worked at|employed)\b/.test(q)) {
       if (resume.experience && resume.experience.length) {
         const parts = resume.experience.map(
           (e) =>
-            `${e.role || 'Role'} @ ${e.company || 'Company'}${e.start ? ` (${e.start}${e.end ? ` - ${e.end}` : ''})` : ''}${e.description ? ` — ${shorten(e.description)}` : ''}`
+            `${e.role || 'Role'} @ ${e.company || 'Company'}${e.start ? ` (${e.start}${e.end ? ` | ${e.end}` : ''})` : ''}${e.description ? ` | ${shorten(e.description)}` : ''}`
         );
         return {
           answer: `Experience:\n${parts.join('\n\n')}`,
@@ -232,7 +232,7 @@ export function createResumeSearcher(resume = {}) {
     if (/\b(education|degree|university|college|school)\b/.test(q)) {
       if (resume.education && resume.education.length) {
         const parts = resume.education.map(
-          (ed) => `${ed.degree || ''} — ${ed.institution || ''} ${ed.year ? `(${ed.year})` : ''}`
+          (ed) => `${ed.degree || ''} | ${ed.institution || ''} ${ed.year ? `(${ed.year})` : ''}`
         );
         return {
           answer: `Education:\n${parts.join('\n')}`,

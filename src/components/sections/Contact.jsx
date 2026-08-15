@@ -77,7 +77,7 @@ export default function Contact() {
       <div className='pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_120%,rgba(200,245,74,0.12),transparent_50%)]' />
       <div className='container-site relative'>
         <p className='meta mb-8'>
-          <span className='text-accent'>07</span> — Contact
+          <span className='text-accent'>07</span> | Contact
         </p>
         <h2 className='font-display text-display font-extrabold'>
           <span className='finale-line line-mask block'>
@@ -94,7 +94,7 @@ export default function Contact() {
         <div className='mt-12 grid items-start gap-16 lg:grid-cols-[0.9fr_1.1fr]'>
           <div>
             <p className='max-w-md text-lg text-mute'>
-              Open to frontend roles and product work that needs a careful interface.
+              Open to frontend roles where the work also includes APIs, data, and the rest of the application.
             </p>
             <div className='mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm'>
               <a href={`mailto:${site.email}`} data-cursor='link' className='underline-anim'>
@@ -128,7 +128,7 @@ export default function Contact() {
             autoComplete='on'
             className='rounded-[1.6rem] border border-line bg-[#121212] p-6 md:p-8 [color-scheme:dark]'
           >
-            <p className='mb-6 text-sm text-mute'>Write a short note — I read everything.</p>
+            <p className='mb-6 text-sm text-mute'>Write a short note. I read everything.</p>
             <label className='block' htmlFor='contact-name'>
               <span className='meta'>Name</span>
               <input

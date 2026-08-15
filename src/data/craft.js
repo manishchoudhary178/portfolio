@@ -3,13 +3,13 @@ export const craft = [
     id: 'detail',
     number: '01',
     title: 'Detail',
-    text: 'Spacing, empty states, loading, and the paths people actually take — not only the happy one.',
+    text: 'Spacing, empty states, loading, and the paths people actually take, not only the happy one.',
   },
   {
     id: 'performance',
     number: '02',
     title: 'Performance',
-    text: 'Interfaces that stay fast on real devices. Lazy-loading, semantic markup, no motion for its own sake.',
+    text: 'Interfaces that stay fast on real devices. Lazy loading, semantic markup, no motion for its own sake.',
   },
   {
     id: 'accessibility',
@@ -21,7 +21,7 @@ export const craft = [
     id: 'reusability',
     number: '04',
     title: 'Reusability',
-    text: 'Components and typed data that survive the next feature, instead of a one-off that has to be rewritten.',
+    text: 'Components and typed data that survive the next feature, instead of a one off that has to be rewritten.',
   },
   {
     id: 'experience',

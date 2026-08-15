@@ -37,7 +37,7 @@ export default function About() {
     <section id='about' ref={rootRef} data-theme='light' className='relative bg-bg py-24 md:py-36'>
       <div className='container-site'>
         <p className='meta mb-10'>
-          <span className='text-accent'>06</span> — About
+          <span className='text-accent'>06</span> | About
         </p>
         <h2 className='about-line font-serif max-w-4xl text-[clamp(1.65rem,3.8vw,3.4rem)] font-normal italic leading-[1.12] tracking-[-0.025em]'>
           {about.statement.map((line) => (
