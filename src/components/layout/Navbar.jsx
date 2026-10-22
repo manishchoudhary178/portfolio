@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useGSAP } from '@gsap/react';
 import { navLinks, site } from '../../data';
@@ -113,6 +114,9 @@ export default function Navbar() {
         </ul>
 
         <div className='hidden items-center gap-5 lg:flex'>
+          <Link to='/3d' data-cursor='link' className='meta text-accent underline-anim'>
+            3D Portfolio
+          </Link>
           {site.resumeUrl ? (
             <a
               href={site.resumeUrl}
@@ -173,6 +177,9 @@ export default function Navbar() {
                 ))}
               </ul>
               <div className='space-y-3 text-mute'>
+                <Link to='/3d' className='block font-display text-lg font-semibold text-accent' onClick={() => setOpen(false)}>
+                  ✦ 3D Portfolio
+                </Link>
                 <a href={`mailto:${site.email}`} className='block underline-anim'>
                   {site.email}
                 </a>
