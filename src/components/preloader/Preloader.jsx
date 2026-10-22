@@ -16,7 +16,7 @@ export default function Preloader({ onComplete }) {
   };
 
   useEffect(() => {
-    const safety = window.setTimeout(complete, 1600);
+    const safety = window.setTimeout(complete, 850);
     return () => window.clearTimeout(safety);
   }, [onComplete]);
 
@@ -33,9 +33,9 @@ export default function Preloader({ onComplete }) {
         onComplete: complete,
       });
 
-      tl.from(letters, { yPercent: 120, stagger: 0.035, duration: 0.45 }, 0)
-        .fromTo('.preloader-bar', { scaleX: 0 }, { scaleX: 1, duration: 0.42, ease: 'power3.inOut' }, 0.12)
-        .to(rootRef.current, { yPercent: -100, duration: 0.72, ease: 'power4.inOut' }, 0.62);
+      tl.from(letters, { yPercent: 120, stagger: 0.028, duration: 0.32 }, 0)
+        .fromTo('.preloader-bar', { scaleX: 0 }, { scaleX: 1, duration: 0.28, ease: 'power3.inOut' }, 0.08)
+        .to(rootRef.current, { yPercent: -100, duration: 0.45, ease: 'power4.inOut' }, 0.38);
     },
     { scope: rootRef, dependencies: [reduced] }
   );

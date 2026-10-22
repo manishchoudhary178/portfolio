@@ -1,4 +1,5 @@
-import { useRef } from 'react';
+import { lazy, Suspense, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useGSAP } from '@gsap/react';
 import { hero } from '../../data';
 import { gsap } from '../../lib/gsap';
@@ -7,7 +8,8 @@ import { usePointerParallax } from '../../hooks/usePointerParallax';
 import { useLenis } from '../providers/SmoothScroll';
 import MagneticButton from '../ui/MagneticButton';
 import SplitWords from '../ui/SplitWords';
-import InterfaceStack from '../identity/InterfaceStack';
+
+const InterfaceStack = lazy(() => import('../identity/InterfaceStack'));
 
 export default function Hero() {
   const rootRef = useRef(null);
@@ -22,7 +24,7 @@ export default function Hero() {
       if (reduced) return;
 
       const words = gsap.utils.toArray('.hero-line .split-word > span');
-      const tl = gsap.timeline({ defaults: { ease: 'expo.out' }, delay: 0.48 });
+      const tl = gsap.timeline({ defaults: { ease: 'expo.out' }, delay: 0.12 });
 
       tl.from('.hero-meta > *', { y: 10, opacity: 0, stagger: 0.08, duration: 0.4 }, 0)
         .from(
@@ -95,6 +97,9 @@ export default function Hero() {
             <MagneticButton as='button' type='button' variant='ghost' onClick={() => go('contact')}>
               Start a conversation
             </MagneticButton>
+            <MagneticButton as={Link} to='/3d' variant='ghost' className='!border-[#c8f54a]/25 !text-[#c8f54a]'>
+              ✦ 3D Experience
+            </MagneticButton>
           </div>
           <p className='mt-8 font-mono text-[11px] leading-relaxed text-faint lg:hidden'>
             const experience = {'{'} usable: true {'}'}
@@ -102,7 +107,9 @@ export default function Hero() {
         </div>
 
         <div className='hero-object hidden lg:block'>
-          <InterfaceStack />
+          <Suspense fallback={<div className='iface-scene' aria-hidden='true' />}>
+            <InterfaceStack />
+          </Suspense>
         </div>
       </div>
 
